@@ -1,0 +1,27 @@
+{
+  "name": "assets",
+  "homepage": "https://github.com/rohillion/yololoy",
+  "authors": [
+    "rohillion"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "angular-moment": "~0.10.3",
+    "angular-sails": "~1.1.4"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.8"
+  }
+}
