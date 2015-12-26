@@ -16,6 +16,7 @@ var tmpPath = '.tmp/public/';
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
+  'styles/semantic.min.css',
   'styles/**/*.css'
 ];
 
@@ -26,17 +27,26 @@ var jsFilesToInject = [
 
   // Load sails.io before everything else
   'js/dependencies/sails.io.js',
+  'bower_components/lodash/lodash.min.js',
   //'bower_components/sails.io.js/dist/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
+  'bower_components/jquery/dist/jquery.min.js',
   'bower_components/angular/angular.min.js',
+  'bower_components/angular-resource/angular-resource.min.js',
   'bower_components/angular-route/angular-route.min.js',
   'bower_components/angular-moment/angular-moment.min.js',
   'bower_components/angular-sails/dist/angular-sails.js',
+  'bower_components/angular-simple-logger/dist/angular-simple-logger.min.js',
+  'bower_components/angular-google-maps/dist/angular-google-maps.min.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
+  'js/app.js',
+  'js/services/*.js',
+  'js/controllers/MainMenuCtrl.js',
+  'js/controllers/*.js',
   'js/**/*.js',
 
   // Use the "exclude" operator to ignore files
