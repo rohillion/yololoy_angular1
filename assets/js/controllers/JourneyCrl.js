@@ -1,4 +1,4 @@
-yololoy.controller("JourneyCtrl", ['$scope', '$rootScope', '$timeout', '$sails', 'Journey', 'JourneyForm', 'uiGmapGoogleMapApi', 'uiGmapIsReady', function JourneyCtrl($scope, $rootScope, $timeout, $sails, Journey, JourneyForm, uiGmapGoogleMapApi, uiGmapIsReady) {
+yololoy.controller("JourneyCtrl", ['$scope', '$routeParams', '$timeout', '$sails', 'Journey', 'JourneyForm', 'uiGmapGoogleMapApi', 'uiGmapIsReady', function JourneyCtrl($scope, $routeParams, $timeout, $sails, Journey, JourneyForm, uiGmapGoogleMapApi, uiGmapIsReady) {
 
     $scope.loading = true;
     $scope.journeys = [];
@@ -7,18 +7,28 @@ yololoy.controller("JourneyCtrl", ['$scope', '$rootScope', '$timeout', '$sails',
     };
     $scope.journeyForm = JourneyForm.getScope();
 
-    setTimeout(function () {
-        Journey.query(function (journeys) {
-            $scope.loading = false;
-            $scope.journeys = journeys;
-        });
-    }, 1000);
+    $scope.list = function () {
+        setTimeout(function () {
+            Journey.query(function (journeys) {
+                $scope.loading = false;
+                $scope.journeys = journeys;
+            });
+        }, 800);
+    };
 
     $scope.create = function () {
         Journey.save($scope.journey, function (journey) {
             $scope.journeys.push(journey);
             JourneyForm.close();
             $scope.journey.name = '';
+        });
+    }
+    
+    $scope.get = function () {
+        console.log($routeParams.journeyId);
+        Journey.get({id:$routeParams.journeyId}, function (journey) {
+            console.log(journey);
+            $scope.journey = journey;
         });
     }
 

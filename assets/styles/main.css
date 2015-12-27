@@ -5,3 +5,77 @@
 .angular-google-map-container {
     height: 400px;
 }
+
+.ui.circular.segment.icon {
+    padding: 1.1em;
+}
+
+.ui.circular.segment.link {
+    cursor: pointer;
+}
+
+.ui.circular.segment.link>* {
+    opacity: 0.7;
+}
+
+.ui.circular.segment.link:hover>* {
+    opacity: 1;
+}
+
+.spots {
+    padding: 50px;
+}
+
+.spot-block {
+    margin-top: 10px;
+    position: relative;
+}
+
+.spot-header {
+    position: relative;
+}
+
+.spot-notes p:first-of-type {
+    min-height: 115px;
+    border-right: 3px dashed #999;
+}
+
+.dotted-divider {
+    position: absolute;
+}
+
+.spot-block .ui.circular.segment {
+    margin: 0 auto;
+    display: block;
+}
+
+.spot-sm.circular.segment {
+    width: 64px;
+    height: 64px;
+}
+
+.spot-md.circular.segment {
+    width: 128px;
+    height: 128px;
+}
+
+.spot-lg.circular.segment {
+    width: 256px;
+    height: 256px;
+}
+
+.spot-info {
+    max-width: 40%;
+    bottom: 20%;
+    position: absolute;
+}
+
+.spot-info.left {
+    padding-right: 20px;
+    left: 0%;
+}
+
+.spot-info.right {
+    padding-left: 20px;
+    right: 0%;
+}

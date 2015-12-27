@@ -7,10 +7,6 @@
 
 module.exports = {
 
-    _config: {
-        model: 'journey'
-    },
-
     attributes: {
         name: {
             type: 'string',
@@ -20,6 +16,10 @@ module.exports = {
         imagePath: 'string',
         author: {
             model: 'user'
+        },
+        spots:{
+            collection: 'spot',
+            via: 'journey'
         }
     }
 };

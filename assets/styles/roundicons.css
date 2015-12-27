@@ -1,0 +1,65 @@
+.roundicon-sm,
+.roundicon-md,
+.roundicon-lg {
+    background-size: cover!important;
+}
+
+/* Small 64 */
+.roundicon-sm.home {
+    background-image: url(images/roundicons/64/free-60-icons-57.png)
+}
+.roundicon-sm.plane {
+    background-image: url(images/roundicons/64/Travel_Transportation-01.png)
+}
+.roundicon-sm.airport {
+    background-image: url(images/roundicons/64/Travel_Transportation-06.png)
+}
+.roundicon-sm.bus {
+    background-image: url(images/roundicons/64/Travel_Transportation-17.png)
+}
+.roundicon-sm.taxi {
+    background-image: url(images/roundicons/64/Travel_Transportation-11.png)
+}
+.roundicon-sm.accommodation {
+    background-image: url(images/roundicons/64/Travel_Transportation-27.png)
+}
+
+/* Medium 128 */
+.roundicon-md.home {
+    background-image: url(images/roundicons/128/free-60-icons-57.png)
+}
+.roundicon-md.plane {
+    background-image: url(images/roundicons/128/Travel_Transportation-01.png)
+}
+.roundicon-md.airport {
+    background-image: url(images/roundicons/128/Travel_Transportation-06.png)
+}
+.roundicon-md.bus {
+    background-image: url(images/roundicons/128/Travel_Transportation-17.png)
+}
+.roundicon-md.taxi {
+    background-image: url(images/roundicons/128/Travel_Transportation-11.png)
+}
+.roundicon-md.accommodation {
+    background-image: url(images/roundicons/128/Travel_Transportation-27.png)
+}
+
+/* Large 256 */
+.roundicon-lg.home {
+    background-image: url(images/roundicons/256/free-60-icons-57.png)
+}
+.roundicon-lg.plane {
+    background-image: url(images/roundicons/256/Travel_Transportation-01.png)
+}
+.roundicon-lg.airport {
+    background-image: url(images/roundicons/256/Travel_Transportation-06.png)
+}
+.roundicon-lg.bus {
+    background-image: url(images/roundicons/256/Travel_Transportation-17.png)
+}
+.roundicon-lg.taxi {
+    background-image: url(images/roundicons/256/Travel_Transportation-11.png)
+}
+.roundicon-lg.accommodation {
+    background-image: url(images/roundicons/256/Travel_Transportation-27.png)
+}

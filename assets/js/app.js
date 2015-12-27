@@ -17,7 +17,7 @@ yololoy.config(['$routeProvider', '$resourceProvider', 'uiGmapGoogleMapApiProvid
         templateUrl: '/templates/main.html',
         controller: 'MainCtrl'
     }).when('/journey/:journeyId', {
-        templateUrl: '/templates/journeys/main-journey.html',
+        templateUrl: '/templates/journeys/detail-journey.html',
         controller: 'JourneyCtrl'
     }).otherwise({
         redirectTo: '/',

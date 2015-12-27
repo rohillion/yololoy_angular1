@@ -1,0 +1,16 @@
+<!-- Journey list -->
+
+<div ng-show="loading" style="position:relative;height:200px;">
+    <div class="ui active medium text loader">Loading</div>
+</div>
+
+<div ng-show="!loading && journeys.length === 0" class="ui column centered grid message">
+    <p>No journeys yet</p>
+</div>
+
+<div ng-hide="journeys.length === 0" class="ui segments">
+    <div id="{{journey.id}}" ng-repeat="journey in journeys" class="ui clearing segment">
+        <div class="ui right floated button mini" ng-click="delete(journey)">Remove</div>
+        <a href="#/journey/{{journey.id}}">{{journey.name}}</a>
+    </div>
+</div>

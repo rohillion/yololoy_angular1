@@ -19,6 +19,10 @@ module.exports = {
         lang: {
             type: 'string',
             size: 2
+        },
+        journeys: {
+            collection: 'journey',
+            via: 'author'
         }
     }
 };

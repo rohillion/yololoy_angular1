@@ -1,0 +1,27 @@
+<!-- Journey create/edit form -->
+
+<div id="journeyForm" class="ui page dimmer inverted" ng-class="{active:journeyForm.opened}">
+    <div class="content">
+        <div class="ui two column centered grid">
+            <div class="column">
+                <form class="ui form">
+                    <div class="field">
+                        <div class="ui massive icon input">
+                            <input type="text" placeholder="The Amazing Journey..." ng-model="journey.name">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <button ng-click="create()" class="teal fluid massive ui button" ng-class="{disabled:journey.name.length===0}">
+                            Create
+                        </button>
+                    </div>
+                    <div class="field">
+                        <button class="ui right floated button tiny" ng-click="close()">
+                            cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
