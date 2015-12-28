@@ -1,107 +1,49 @@
-<div class="ui main text container center aligned" ng-init="get()">
+<div class="ui main text container center aligned" ng-init="list()">
     <div ng-include src="'templates/journeys/create-journey.html'"></div>
-    <h1 class="align centered">{{journey.name}}</h1>
+    <h1 class="align centered journey-title">{{journey.name}}</h1>
     <div class="ui three column centered grid">
 
-        <div class="spots">
-            <div class="spot-block two column centered row">
+        <div class="steps">
 
-                <div class="spot-header ui two column grid">
-                    <div class="spot-info left"> 13/01/2016 </div>
-                    <div class="ui circular segment spot-sm home roundicon-md"></div>
-                    <div class="spot-info right"> Start </div>
-                    <div class="ui horizontal divider">Home</div>
+            <div ng-repeat="step in journey.steps" class="step-block two column centered row">
+
+                <div class="step-header ui two column grid">
+                    <div class="step-info left"> 13/01/2016 </div>
+                    <div ng-class="step.type" class="ui circular segment step-sm roundicon-md step-picker inline dropdown">
+                        <div class="menu">
+                            <div ng-click="edit(step,{type:type.value})" class="item" ng-repeat="type in types" data-value="{{type.value}}">
+                                <img class="ui avatar image" ng-src="/styles/images/roundicons/64/{{type.value}}.png"> {{type.name}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="delete-step">
+                        <button class="ui right floated button mini" ng-click="delete(step)">
+                            delete
+                        </button>
+                    </div>
+                    <div class="step-info right"> Starting point </div>
+                    <div class="ui horizontal divider">{{step.name || step.type}}</div>
                 </div>
 
-                <div class="spot-notes ui two column grid">
+                <div class="step-notes ui two column grid">
                     <p class="column">Vivamus tristique, enim ut convallis tincidunt, tortor est molestie odio, a sodales urna enim vel odio. Phasellus efficitur turpis eu massa faucibus sodales.</p>
                     <p class="column">Nam in tortor eu nibh ultricies commodo eget a turpis. Integer a ante finibus, tempus sapien et, lobortis justo.</p>
                 </div>
 
             </div>
 
-            <div class="spot-block two column centered row">
 
-                <div class="spot-header ui two column grid">
-                    <div class="spot-info left"> 13/01/2016 </div>
-                    <div class="ui circular segment spot-sm bus roundicon-md"></div>
-                    <div class="spot-info right"> $2.50 One way ticket </div>
-                    <div class="ui horizontal divider">Bus to Airport</div>
-                </div>
-
-                <div class="spot-notes ui two column grid">
-                    <p class="column">Vivamus tristique, enim ut convallis tincidunt, tortor est molestie odio, a sodales urna enim vel odio. Phasellus efficitur turpis eu massa faucibus sodales.</p>
-                    <p class="column"></p>
-                </div>
-            </div>
-
-            <div class="spot-block two column centered row">
-
-                <div class="spot-header ui two column grid">
-                    <div class="spot-info left"> 13/01/2016 </div>
-                    <div class="ui circular segment spot-sm plane roundicon-md"></div>
-                    <div class="spot-info right"> $34 Return ticket </div>
-                    <div class="ui horizontal divider">Dublin Airport</div>
-                </div>
-
-                <div class="spot-notes ui two column grid">
-                    <p class="column"></p>
-                    <p class="column"></p>
-                </div>
-            </div>
-
-            <div class="spot-block two column centered row">
-
-                <div class="spot-header ui two column grid">
-                    <div class="spot-info left"> 13/01/2016 </div>
-                    <div class="ui circular segment spot-sm airport roundicon-md"></div>
-                    <div class="ui horizontal divider">Amsterdam Airport</div>
-                </div>
-
-                <div class="spot-notes ui two column grid">
-                    <p class="column">Vivamus tristique, enim ut convallis tincidunt, tortor est molestie odio, a sodales urna enim vel odio. Phasellus efficitur turpis eu massa faucibus sodales.</p>
-                    <p class="column"></p>
-                </div>
-            </div>
-
-            <div class="spot-block two column centered row">
-
-                <div class="spot-header ui two column grid">
-                    <div class="spot-info left"> 13/01/2016 </div>
-                    <div class="ui circular segment spot-sm taxi roundicon-md"></div>
-                    <div class="spot-info right"> $22.50 Taxi </div>
-                    <div class="ui horizontal divider">Taxi to accomodation</div>
-                </div>
-
-                <div class="spot-notes ui two column grid">
-                    <p class="column"></p>
-                    <p class="column"></p>
-                </div>
-            </div>
-
-            <div class="spot-block two column centered row">
-
-                <div class="spot-header ui two column grid">
-                    <div class="spot-info left"> 13/01/2016 </div>
-                    <div class="ui circular segment spot-sm accommodation roundicon-md"></div>
-                    <div class="spot-info right"> $25.00 Night/Person </div>
-                    <div class="ui horizontal divider">Accommodation</div>
-                </div>
-
-                <div class="spot-notes ui two column grid">
-                    <p class="column"></p>
-                    <p class="column"></p>
-                </div>
-            </div>
-            
-            <div class="spot-block two column centered row">
-
-                <div class="spot-header ui two column grid">
-                    <div class="ui circular segment spot-sm icon link">
+            <div class="step-block two column centered row">
+                <div class="step-header ui two column grid">
+                    <div class="ui circular segment step-sm icon link step-picker inline dropdown">
                         <i class="ui icon plus large"></i>
+                        <div class="menu">
+                            <div ng-click="add({type:type.value})" class="item" ng-repeat="type in types" data-value="{{type.value}}">
+                                <img class="ui avatar image" ng-src="/styles/images/roundicons/64/{{type.value}}.png"> {{type.name}}
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
             </div>
 
         </div>

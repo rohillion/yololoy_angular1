@@ -17,6 +17,10 @@ module.exports = {
         author: {
             model: 'user'
         },
+        steps:{
+            collection: 'step',
+            via: 'journey'
+        },
         spots:{
             collection: 'spot',
             via: 'journey'

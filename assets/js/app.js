@@ -18,7 +18,7 @@ yololoy.config(['$routeProvider', '$resourceProvider', 'uiGmapGoogleMapApiProvid
         controller: 'MainCtrl'
     }).when('/journey/:journeyId', {
         templateUrl: '/templates/journeys/detail-journey.html',
-        controller: 'JourneyCtrl'
+        controller: 'StepCtrl'
     }).otherwise({
         redirectTo: '/',
         caseInsensitiveMatch: true

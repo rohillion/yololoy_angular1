@@ -6,6 +6,10 @@
     height: 400px;
 }
 
+h1.journey-title {
+    font-size: 3.7rem;
+}
+
 .ui.circular.segment.icon {
     padding: 1.1em;
 }
@@ -14,28 +18,32 @@
     cursor: pointer;
 }
 
-.ui.circular.segment.link>* {
+.ui.circular.segment.link>i {
     opacity: 0.7;
 }
 
-.ui.circular.segment.link:hover>* {
+.ui.circular.segment.link:hover>i {
     opacity: 1;
 }
 
-.spots {
+.steps {
     padding: 50px;
 }
 
-.spot-block {
+.step-block {
     margin-top: 10px;
     position: relative;
 }
 
-.spot-header {
+.step-header {
     position: relative;
 }
 
-.spot-notes p:first-of-type {
+.step-notes p {
+    font-size: 1.5rem;
+}
+
+.step-notes p:first-of-type {
     min-height: 115px;
     border-right: 3px dashed #999;
 }
@@ -44,38 +52,44 @@
     position: absolute;
 }
 
-.spot-block .ui.circular.segment {
+.step-block .ui.circular.segment {
     margin: 0 auto;
     display: block;
 }
 
-.spot-sm.circular.segment {
+.step-sm.circular.segment {
     width: 64px;
     height: 64px;
 }
 
-.spot-md.circular.segment {
+.step-md.circular.segment {
     width: 128px;
     height: 128px;
 }
 
-.spot-lg.circular.segment {
+.step-lg.circular.segment {
     width: 256px;
     height: 256px;
 }
 
-.spot-info {
+.step-info {
     max-width: 40%;
     bottom: 20%;
     position: absolute;
 }
 
-.spot-info.left {
+.step-info.left {
     padding-right: 20px;
     left: 0%;
 }
 
-.spot-info.right {
+.step-info.right {
     padding-left: 20px;
     right: 0%;
+}
+
+.delete-step {
+    top: 0;
+    position: absolute;
+    right: 0;
 }
