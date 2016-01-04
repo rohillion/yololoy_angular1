@@ -1,3 +1,43 @@
+@font-face {
+    font-family: "Redacted";
+    src: url("fonts/redacted-regular.eot");
+    src: url("fonts/redacted-regular.woff2") format("woff2"), url("fonts/redacted-regular.woff") format("woff"), url("fonts/redacted-regular.otf") format("opentype"), url("fonts/redacted-regular.svg#filename") format("svg");
+}
+
+input {
+    outline: 0;
+}
+
+[date-picker] .active,
+[date-picker] .now {
+    background-image: none;
+}
+
+[date-picker-wrapper] {
+    top: 60px;
+    left: 0;
+}
+
+.date-picker-date-time {
+    background: #FFF;
+    box-shadow: 0 1px 2px 0 rgba(34, 36, 38, .15);
+    border-radius: .28571429rem;
+    border: 1px solid rgba(34, 36, 38, .15);
+}
+
+[date-picker] .active.active,
+[date-picker] .active.disabled,
+[date-picker] .active:active,
+[date-picker] .active:hover,
+[date-picker] .active[disabled],
+[date-picker] .now.active,
+[date-picker] .now.disabled,
+[date-picker] .now:active,
+[date-picker] .now:hover,
+[date-picker] .now[disabled] {
+    background-color: #00BCD4;
+}
+
 .main.container {
     padding-top: 7em;
 }
@@ -39,17 +79,32 @@ h1.journey-title {
     position: relative;
 }
 
+.step-header .menu {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.empty.step-notes::before {
+    left: 50%;
+    position: absolute;
+    content: '';
+    display: block;
+    border-right: 3px dashed #999;
+    min-height: 100px;
+}
+
+.edit .step-notes::before {
+    display: none;
+}
+
 .step-notes p {
     font-size: 1.5rem;
-}
-
-.step-notes p:first-of-type {
     min-height: 115px;
-    border-right: 3px dashed #999;
 }
 
-.dotted-divider {
-    position: absolute;
+.step-notes.two p:first-of-type {
+    border-right: 3px dashed #999;
 }
 
 .step-block .ui.circular.segment {
@@ -74,8 +129,9 @@ h1.journey-title {
 
 .step-info {
     max-width: 40%;
-    bottom: 20%;
+    bottom: 26%;
     position: absolute;
+    outline: 0;
 }
 
 .step-info.left {
@@ -88,8 +144,64 @@ h1.journey-title {
     right: 0%;
 }
 
+.step-info.datepicker {
+    border: none;
+}
+
 .delete-step {
     top: 0;
     position: absolute;
     right: 0;
+}
+
+.ng-inline-edit__input {
+    border: 0;
+    outline: 0;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-bottom: 1px dashed #333;
+}
+
+.step-info .ng-inline-edit__input {
+    text-align: right;
+    width: 5em;
+}
+
+.ng-inline-edit--error .ng-inline-edit__input {
+    border-color: #f00;
+}
+
+.step-description .ng-inline-edit__input {
+    background-color: #f9f9f9;
+    height: 3.9em;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.step-notes.two .step-description .ng-inline-edit__text:empty {
+    background-position-y: -40px;
+    background-repeat: no-repeat;
+    background-image: url(images/paragraph.png);
+    background-size: cover;
+    display: block;
+}
+
+.step-description .ng-inline-edit__text {
+    min-height: 80px;
+    display: block;
+}
+.step-description .ng-inline-edit__text:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.step-description .ng-inline-edit__text:empty {
+    background-position-y: -24px;
+    background-repeat: no-repeat;
+    background-image: url(images/paragraph.png);
+    background-size: 100% 100px;
+    display: block;
 }

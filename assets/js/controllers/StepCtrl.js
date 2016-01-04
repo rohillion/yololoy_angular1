@@ -4,31 +4,64 @@ yololoy.controller('StepCtrl', ['$scope', '$routeParams', 'Step', 'Journey', fun
         {
             name: 'Home',
             value: 'home',
-        },
-        {
-            name: 'Plane',
-            value: 'plane',
-        },
-        {
+        }, {
             name: 'Airport',
             value: 'airport'
-        },
-        {
+        }, {
             name: 'Taxi',
             value: 'taxi'
-        },
-        {
+        }, {
+            name: 'Plane',
+            value: 'plane'
+        }, {
             name: 'Bus',
             value: 'bus'
-        },
-        {
+        }, {
             name: 'Accommodation',
             value: 'accommodation'
+        }, {
+            name: 'Food',
+            value: 'food'
+        }, {
+            name: 'Nature',
+            value: 'nature'
+        }, {
+            name: 'Gig',
+            value: 'gig'
+        }, {
+            name: 'Camping',
+            value: 'camping'
+        }, {
+            name: 'Car',
+            value: 'car'
+        }, {
+            name: 'Train',
+            value: 'train'
+        }, {
+            name: 'Snorkeling',
+            value: 'snorkeling'
+        }, {
+            name: 'Bike',
+            value: 'bike'
+        }, {
+            name: 'Ship',
+            value: 'ship'
         }
     ];
 
     var step;
     $scope.journey = {};
+    $scope.isAdmin = true;
+
+    $scope.dateChange = function (modelName, newDate, step) {
+        $scope.edit(step, {
+            date: newDate
+        });
+    }
+
+    $scope.myValidator = function (newValue) {
+        return !isNaN(newValue);
+    };
 
     $scope.list = function () {
         Journey.get({
@@ -36,15 +69,19 @@ yololoy.controller('StepCtrl', ['$scope', '$routeParams', 'Step', 'Journey', fun
         }, function (journey) {
             $scope.loading = false;
             $scope.journey = journey;
-            dropdownInit();
+            if ($scope.isAdmin)
+                dropdownInit();
         });
     }
 
     $scope.add = function (attrs) {
 
         step = {
-            name: '',
-            journey: $routeParams.journeyId
+            journey: $routeParams.journeyId,
+            description: '',
+            budget: 0,
+            date: new Date(),
+            order: $scope.journey.steps.length + 1
         }
 
         angular.forEach(attrs, function (attr, key) {
@@ -53,18 +90,22 @@ yololoy.controller('StepCtrl', ['$scope', '$routeParams', 'Step', 'Journey', fun
 
         Step.save(step, function (step) {
             $scope.journey.steps.push(step);
-            dropdownInit();
+            if ($scope.isAdmin)
+                dropdownInit();
         });
     }
 
     $scope.edit = function (step, attrs) {
+
         angular.forEach(attrs, function (attr, key) {
             step[key] = attr;
         });
 
         Step.update({
             id: step.id
-        }, step);
+        }, step, function () {
+            resizeTextarea(step.id);
+        });
     }
 
     $scope.delete = function (step) {
@@ -81,6 +122,13 @@ yololoy.controller('StepCtrl', ['$scope', '$routeParams', 'Step', 'Journey', fun
                 }
             });
         }, 0);
+    }
+
+    function resizeTextarea(stepId) {
+        var textarea = $('#' + stepId).find('textarea');
+        textarea.height(textarea[0].scrollHeight);
+        console.log(textarea[0]);
+        console.log(textarea[0].scrollHeight);
     }
 
 }]);

@@ -8,9 +8,22 @@
     <p>No journeys yet</p>
 </div>
 
+<div class="ui three column grid" ng-hide="journeys.length === 0">
+    <div id="{{journey.id}}" ng-repeat="journey in journeys" class="column">
+        <div class="ui fluid card">
+            <div class="image">
+                <img src="/images/norway-geirangerfjord.jpg">
+            </div>
+            <div class="content">
+                <a href="#/journey/{{journey.id}}" class="header">{{journey.name}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div ng-hide="journeys.length === 0" class="ui segments">
     <div id="{{journey.id}}" ng-repeat="journey in journeys" class="ui clearing segment">
         <div class="ui right floated button mini" ng-click="delete(journey)">Remove</div>
-        <a href="#/journey/{{journey.id}}">{{journey.name}}</a>
+        <a href="#/journey/{{journey.id}}"></a>
     </div>
 </div>

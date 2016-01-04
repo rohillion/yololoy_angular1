@@ -1,6 +1,6 @@
 'use stric';
 
-var yololoy = angular.module('yololoy', ['ngResource', 'ngRoute', 'ngSails', 'uiGmapgoogle-maps']);
+var yololoy = angular.module('yololoy', ['ngResource', 'ngSanitize', 'ngRoute', 'ngSails', 'uiGmapgoogle-maps', 'angularInlineEdit', 'datePicker']);
 
 yololoy.config(['$routeProvider', '$resourceProvider', 'uiGmapGoogleMapApiProvider', function ($routeProvider, $resourceProvider, uiGmapGoogleMapApiProvider) {
     

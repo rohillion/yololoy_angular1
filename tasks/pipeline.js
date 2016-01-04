@@ -17,6 +17,7 @@ var tmpPath = '.tmp/public/';
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
   'styles/semantic.min.css',
+  'bower_components/angular-datepicker/dist/angular-datepicker.min.css',
   'styles/**/*.css'
 ];
 
@@ -35,16 +36,21 @@ var jsFilesToInject = [
   'bower_components/angular/angular.min.js',
   'bower_components/angular-resource/angular-resource.min.js',
   'bower_components/angular-route/angular-route.min.js',
-  'bower_components/angular-moment/angular-moment.min.js',
+  'bower_components/angular-sanitize/angular-sanitize.min.js',
+  //'bower_components/angular-moment/angular-moment.min.js',
+  'bower_components/moment/min/moment.min.js',
   'bower_components/angular-sails/dist/angular-sails.js',
   'bower_components/angular-simple-logger/dist/angular-simple-logger.min.js',
   'bower_components/angular-google-maps/dist/angular-google-maps.min.js',
+  'bower_components/ng-inline-edit/dist/ng-inline-edit.js',
+  'bower_components/angular-datepicker/dist/angular-datepicker.js',
   'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/app.js',
   'js/services/*.js',
+  'js/filters/*.js',
   'js/controllers/MainMenuCtrl.js',
   'js/controllers/*.js',
   'js/**/*.js',

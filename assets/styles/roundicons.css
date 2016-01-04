@@ -23,6 +23,33 @@
 .roundicon-sm.accommodation {
     background-image: url(images/roundicons/64/accommodation.png)
 }
+.roundicon-sm.food {
+    background-image: url(images/roundicons/64/food.png)
+}
+.roundicon-sm.nature {
+    background-image: url(images/roundicons/64/nature.png)
+}
+.roundicon-sm.gig {
+    background-image: url(images/roundicons/64/gig.png)
+}
+.roundicon-sm.camping {
+    background-image: url(images/roundicons/64/camping.png)
+}
+.roundicon-sm.car {
+    background-image: url(images/roundicons/64/car.png)
+}
+.roundicon-sm.ship {
+    background-image: url(images/roundicons/64/ship.png)
+}
+.roundicon-sm.bike {
+    background-image: url(images/roundicons/64/bike.png)
+}
+.roundicon-sm.train {
+    background-image: url(images/roundicons/64/train.png)
+}
+.roundicon-sm.snorkeling {
+    background-image: url(images/roundicons/64/snorkeling.png)
+}
 
 /* Medium 128 */
 .roundicon-md.home {
@@ -43,6 +70,33 @@
 .roundicon-md.accommodation {
     background-image: url(images/roundicons/128/accommodation.png)
 }
+.roundicon-md.food {
+    background-image: url(images/roundicons/128/food.png)
+}
+.roundicon-md.nature {
+    background-image: url(images/roundicons/128/nature.png)
+}
+.roundicon-md.gig {
+    background-image: url(images/roundicons/128/gig.png)
+}
+.roundicon-md.camping {
+    background-image: url(images/roundicons/128/camping.png)
+}
+.roundicon-md.car {
+    background-image: url(images/roundicons/128/car.png)
+}
+.roundicon-md.ship {
+    background-image: url(images/roundicons/128/ship.png)
+}
+.roundicon-md.bike {
+    background-image: url(images/roundicons/128/bike.png)
+}
+.roundicon-md.train {
+    background-image: url(images/roundicons/128/train.png)
+}
+.roundicon-md.snorkeling {
+    background-image: url(images/roundicons/128/snorkeling.png)
+}
 
 /* Large 256 */
 .roundicon-lg.home {
@@ -62,4 +116,31 @@
 }
 .roundicon-lg.accommodation {
     background-image: url(images/roundicons/256/accommodation.png)
+}
+.roundicon-lg.food {
+    background-image: url(images/roundicons/256/food.png)
+}
+.roundicon-lg.nature {
+    background-image: url(images/roundicons/256/nature.png)
+}
+.roundicon-lg.gig {
+    background-image: url(images/roundicons/256/gig.png)
+}
+.roundicon-lg.camping {
+    background-image: url(images/roundicons/256/camping.png)
+}
+.roundicon-lg.car {
+    background-image: url(images/roundicons/256/car.png)
+}
+.roundicon-lg.ship {
+    background-image: url(images/roundicons/256/ship.png)
+}
+.roundicon-lg.bike {
+    background-image: url(images/roundicons/256/bike.png)
+}
+.roundicon-lg.train {
+    background-image: url(images/roundicons/256/train.png)
+}
+.roundicon-lg.snorkeling {
+    background-image: url(images/roundicons/256/snorkeling.png)
 }

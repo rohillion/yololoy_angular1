@@ -1,39 +1,63 @@
-<div class="ui main text container center aligned" ng-init="list()">
+<div ng-class="{edit:isAdmin}" class="ui main text container center aligned" ng-init="list()">
     <div ng-include src="'templates/journeys/create-journey.html'"></div>
     <h1 class="align centered journey-title">{{journey.name}}</h1>
     <div class="ui three column centered grid">
 
         <div class="steps">
 
-            <div ng-repeat="step in journey.steps" class="step-block two column centered row">
+            <div ng-repeat="step in journey.steps | orderBy:'createdAt'" class="step-block two column centered row">
 
                 <div class="step-header ui two column grid">
-                    <div class="step-info left"> 13/01/2016 </div>
-                    <div ng-class="step.type" class="ui circular segment step-sm roundicon-md step-picker inline dropdown">
-                        <div class="menu">
+
+                    <!-- isAdmin -->
+                    <input ng-if="isAdmin" type="text" class="step-info left datepicker" date-time ng-model="step.date" view="date" format="DD/MM/YYYY HH:mm" date-change="dateChange" params="{{step}}" auto-close="false">
+
+                    <!-- noAdmin -->
+                    <div ng-if="!isAdmin" type="text" class="step-info left">{{step.date | date:"dd/MM/yyyy HH:mm" || '--'}}</div>
+
+                    <div ng-class="[step.type, {dropdown:isAdmin}]" class="ui circular segment step-sm roundicon-md step-picker inline">
+                        <!-- isAdmin -->
+                        <div ng-if="isAdmin" class="menu">
                             <div ng-click="edit(step,{type:type.value})" class="item" ng-repeat="type in types" data-value="{{type.value}}">
                                 <img class="ui avatar image" ng-src="/styles/images/roundicons/64/{{type.value}}.png"> {{type.name}}
                             </div>
                         </div>
                     </div>
-                    <div class="delete-step">
+
+                    <!-- isAdmin -->
+                    <div ng-if="isAdmin" class="delete-step">
                         <button class="ui right floated button mini" ng-click="delete(step)">
                             delete
                         </button>
                     </div>
-                    <div class="step-info right"> Starting point </div>
+
+                    <!-- isAdmin -->
+                    <div ng-if="isAdmin" class="step-info step-budget right" inline-edit-validation="myValidator(newValue)" inline-edit-on-click inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit="step.budget" inline-edit-filter="currency:'€'" inline-edit-callback="edit(step,{budget:newValue})"></div>
+
+                    <!-- noAdmin -->
+                    <div ng-if="!isAdmin" class="step-info step-budget right">{{step.budget | currency:'€'}}</div>
+
                     <div class="ui horizontal divider">{{step.name || step.type}}</div>
                 </div>
 
-                <div class="step-notes ui two column grid">
-                    <p class="column">Vivamus tristique, enim ut convallis tincidunt, tortor est molestie odio, a sodales urna enim vel odio. Phasellus efficitur turpis eu massa faucibus sodales.</p>
-                    <p class="column">Nam in tortor eu nibh ultricies commodo eget a turpis. Integer a ante finibus, tempus sapien et, lobortis justo.</p>
+                <div ng-class="{empty:step.description.length === 0}" class="step-notes ui column grid">
+
+                    <!-- isAdmin -->
+                    <p id="{{step.id}}" ng-if="isAdmin" class="column left step-description" inline-edit-textarea inline-edit-on-click inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit="step.description" inline-edit-callback="edit(step,{description:newValue},this)" inline-edit-filter="linky:'_blank'"></p>
+
+                    <!-- noAdmin -->
+                    <p ng-if="!isAdmin" class="column left step-description" ng-bind-html="step.description | linky:'_blank'"></p>
                 </div>
+
+                <!--<div class="step-notes ui two column grid">
+                    <p class="column left step-description" inline-edit-textarea inline-edit-on-click inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit="step.description" inline-edit-callback="edit(step,{description:newValue})"></p>
+                    <p class="column left step-description" inline-edit-textarea inline-edit-on-click inline-edit-btn-edit="" inline-edit-on-blur="save" inline-edit="step.description2" inline-edit-callback="edit(step,{description2:newValue})"></p>
+                </div>-->
 
             </div>
 
-
-            <div class="step-block two column centered row">
+            <!-- isAdmin -->
+            <div ng-if="isAdmin" class="step-block two column centered row">
                 <div class="step-header ui two column grid">
                     <div class="ui circular segment step-sm icon link step-picker inline dropdown">
                         <i class="ui icon plus large"></i>
